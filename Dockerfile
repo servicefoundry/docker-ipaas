@@ -1,5 +1,5 @@
 #
-# iPaaS (aka Apache NiFi) Image for Service Foundry Platform
+# Data Integration Platform As a Service (aka Apache NiFi) Image for Service Foundry Platform
 #
 # VERSION : 1.0
 #
@@ -19,8 +19,7 @@ RUN set -x \
         && mkdir -p $NIFI_HOME \
         && tar -z -x -f /tmp/nifi-bin.tar.gz -C $NIFI_HOME --strip-components=1 \
         && rm /tmp/nifi-bin.tar.gz
-
-RUN addgroup nifi \
+        && addgroup nifi \
         && adduser -S -G nifi nifi \
         && bash -c "mkdir -p $NIFI_HOME/{database_repository,flowfile_repository,content_repository,provenance_repository}" \
         && chown nifi:nifi -R $NIFI_HOME
