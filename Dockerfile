@@ -18,7 +18,7 @@ RUN set -x \
         && curl -Lf https://archive.apache.org/dist/nifi/$NIFI_VERSION/nifi-$NIFI_VERSION-bin.tar.gz -o /tmp/nifi-bin.tar.gz \
         && mkdir -p $NIFI_HOME \
         && tar -z -x -f /tmp/nifi-bin.tar.gz -C $NIFI_HOME --strip-components=1 \
-        && rm /tmp/nifi-bin.tar.gz
+        && rm /tmp/nifi-bin.tar.gz \
         && addgroup nifi \
         && adduser -S -G nifi nifi \
         && bash -c "mkdir -p $NIFI_HOME/{database_repository,flowfile_repository,content_repository,provenance_repository}" \
